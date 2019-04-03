@@ -1,15 +1,20 @@
 import psycopg2
 
-conn = psycopg2.connect("host=appli-pfe.ec-nantes.fr dbname=app_bdonn_01 user=app2_01 password=osiris")
+class DataConsumer():
+	"""To query database"""
+	def __init__(self, credentials):
+		self.conn = psycopg2.connect(credentials)
 
-cursor = conn.cursor()
+	def __del__(self):
+		conn.close()
 
-cursor.execute("SELECT * from Product")
+	def getProductSet(self):
+		cursor = conn.cursor()
 
-rows = cursor.fetchall()
+		cursor.execute("SELECT * from Product")
 
-for row in rows:
-	print(row)
+		rows = cursor.fetchall()
 
-cursor.close()
-conn.close()
+		cursor.close()
+
+		return rows
