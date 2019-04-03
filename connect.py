@@ -6,10 +6,10 @@ class DataConsumer():
 		self.conn = psycopg2.connect(credentials)
 
 	def __del__(self):
-		conn.close()
+		self.conn.close()
 
 	def getProductSet(self):
-		cursor = conn.cursor()
+		cursor = self.conn.cursor()
 
 		cursor.execute("SELECT * from Product")
 
