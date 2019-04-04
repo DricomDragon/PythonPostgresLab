@@ -6,10 +6,11 @@ A CLI (Command Line Interface) written in python to query a PostgreSQL database.
 Install postgreSQL :
 `sudo apt install postgresql`
 
-Create the database :
-*#*`psql`
-*postgres=#*`create database logistics;`
+Connect with postgres profile :
+`sudo su postgres`
 
+Create the database :
+`psql -f SQL/create_db.sql postgres`
 
 Populate database with tables :
-*#*`psql -d logistics -f SQL/create_tables.sql postgres`
+`psql -d logistics -f SQL/create_tables.sql postgres`
