@@ -14,3 +14,6 @@ Create the database :
 
 Populate database with tables :
 `psql -d logistics -f SQL/create_tables.sql postgres`
+
+Populate tables with sample data :
+`psql -d logistics -f SQL/populate_tables.sql postgres`
