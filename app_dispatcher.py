@@ -1,6 +1,6 @@
 from connect import DataConsumer
 
-credentials = "host=appli-pfe.ec-nantes.fr dbname=app_bdonn_01 user=app2_01 password=osiris"
+credentials = "host=localhost dbname=logistics user=postgres password=postgres_password"
 
 print('Start')
 

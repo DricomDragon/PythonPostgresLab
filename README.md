@@ -17,3 +17,6 @@ Populate database with tables :
 
 Populate tables with sample data :
 `psql -d logistics -f SQL/populate_tables.sql postgres`
+
+If needed you can adapt the password of postgres user (or any user you want) :
+`psql -c "alter user postgres password 'postgres_password'"`
