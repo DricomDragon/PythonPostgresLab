@@ -3,22 +3,33 @@ A CLI (Command Line Interface) written in python to query a PostgreSQL database.
 
 ## Prerequisites
 
-### PyInquirer
+What you need to get this project running. These commands were tested on a debian based system (Ubuntu 18.04 LTS).
+
+### Python packages
+
+#### PyInquirer
 
 For easy CLI python interfaces :
 `sudo pip3 install pyinquirer`
 
-### Postgres
+#### Postgres
 
 To install PostgreSQL driver :
 `sudo pip3 install postgres`
 
-## PostgreSQL database
+### PostgreSQL database
 
 I strongly recommand to know how to run an instance of postgreSQL. The schema is a model of a logistics company.
 
+#### Install a postgreSQL instance
+
 Install postgreSQL :
 `sudo apt install postgresql`
+
+Start service :
+`sudo service postgresql start`
+
+#### Create the database
 
 Connect with postgres profile :
 `sudo su postgres`
