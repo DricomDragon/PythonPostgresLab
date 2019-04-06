@@ -1,9 +1,9 @@
-from connect import DataConsumer
-
-credentials = "host=localhost dbname=logistics user=postgres password=postgres_password"
+from consumer.connect import DataConsumer
+from consumer.credentials import getCredentials
 
 print('Start')
 
+credentials = getCredentials()
 consumer = DataConsumer(credentials)
 
 rows = consumer.getProductSet()
