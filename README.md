@@ -7,6 +7,11 @@ What you need to get this project running. These commands were tested on a debia
 
 ### Python packages
 
+#### Pip
+
+If not installed yet, you need to get pip, the python package manager :
+`sudo apt install python3-pip`
+
 #### PyInquirer
 
 For easy CLI python interfaces :
