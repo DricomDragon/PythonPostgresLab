@@ -1,5 +1,6 @@
 from consumer.connect import DataConsumer
 from consumer.credentials import getCredentials
+from model.product import Product
 
 print('Start')
 
@@ -9,6 +10,8 @@ consumer = DataConsumer(credentials)
 rows = consumer.getProductSet()
 
 for r in rows:
-	print(r)
+        pro = Product(r)
+        print('id = ', pro.id, '; name = ', pro.name)
+        print('- - -')
 
 print('End')
