@@ -10,16 +10,19 @@ What you need to get this project running. These commands were tested on a debia
 #### Pip
 
 If not installed yet, you need to get pip, the python package manager :
+
 `sudo apt install python3-pip`
 
 #### PyInquirer
 
 For easy CLI python interfaces :
+
 `sudo pip3 install pyinquirer`
 
 #### Postgres
 
 To install PostgreSQL driver :
+
 `sudo pip3 install postgres`
 
 ### PostgreSQL database
@@ -29,24 +32,31 @@ I strongly recommand to know how to run an instance of postgreSQL. The schema is
 #### Install a postgreSQL instance
 
 Install postgreSQL :
+
 `sudo apt install postgresql`
 
 Start service :
+
 `sudo service postgresql start`
 
 #### Create the database
 
 Connect with postgres profile :
+
 `sudo su postgres`
 
 Create the database :
+
 `psql -f SQL/create_db.sql postgres`
 
 Populate database with tables :
+
 `psql -d logistics -f SQL/create_tables.sql postgres`
 
 Populate tables with sample data :
+
 `psql -d logistics -f SQL/populate_tables.sql postgres`
 
 If needed you can adapt the password of postgres user (or any user you want) :
+
 `psql -c "alter user postgres password 'postgres_password'"`
