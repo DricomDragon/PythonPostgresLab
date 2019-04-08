@@ -3,6 +3,7 @@ from consumer.credentials import getCredentials
 from model.product import Product
 from basic_display import BasicDisplay
 from cli.pro_action_asker import ProActionAsker
+from cli.name_asker import NameAsker
 
 print('|Product management application|')
 
@@ -10,6 +11,8 @@ credentials = getCredentials()
 consumer = DataConsumer(credentials)
 
 actionAsker = ProActionAsker()
+nameAsker = NameAsker()
+
 display = BasicDisplay()
 
 running = True
@@ -22,6 +25,12 @@ while running:
     elif action == 'list':
         proList = consumer.getProductSet()
         display.productList(proList)
+    elif action == 'add':
+        name = nameAsker.ask()
+        print('Adding product', name, '...')
+        consumer.addProduct(name)
+        consumer.commit()
+        print('Done.')
     else:
         print('Action', action, 'not implemented yet.')
 
