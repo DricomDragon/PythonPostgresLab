@@ -15,13 +15,14 @@ display = BasicDisplay()
 running = True
 while running:
     ans = actionAsker.ask()
+    action = ans['action']
     
-    if ans['action'] == 'quit':
+    if action == 'quit':
         running = False
-    elif ans['action'] == 'list':
+    elif action == 'list':
         proList = consumer.getProductSet()
         display.productList(proList)
     else:
-        print('Action', ans['action'], 'not implemented yet.')
+        print('Action', action, 'not implemented yet.')
 
 print('End')
