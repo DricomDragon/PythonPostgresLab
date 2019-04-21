@@ -26,6 +26,19 @@ class DataConsumer():
 
         cursor.close()
 
+    def getCompanyNames(self):
+        cursor = self.conn.cursor()
+
+        cursor.execute("SELECT com_name FROM Company")
+
+        ans = []
+        for t in cursor:
+            ans.append(t[0])
+
+        cursor.close()
+
+        return ans
+
     def commit(self):
         """Make the changes to the database persistent"""
         self.conn.commit()
