@@ -14,6 +14,7 @@ class BookAsker:
         ]
 
     def select(self, bookList):
+        self.widget[0]['choices'] = []
         for rb in bookList:
             dic = {'key': rb[0], 'value': rb[0], 'name': str(rb[0]) + ' : ' + str(rb[1].isoformat())}
             self.widget[0]['choices'].append(dic)
