@@ -10,6 +10,9 @@ class BasicDisplay():
         print('|', title, '|')
         print(bar)
 
+    def error(self, message):
+        print('ERROR :', message)
+
     def product(self, p):
         print(p.id ,':', p.name)
 
