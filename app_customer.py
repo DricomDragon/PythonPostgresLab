@@ -1,7 +1,7 @@
 from consumer.connect import DataConsumer
 from consumer.credentials import getCredentials
 from basic_display import BasicDisplay
-from cli.name_asker import NameAsker
+from cli.select import Selecter
 from cli.pass_asker import PassAsker
 from cli.customer_action_asker import CustomerActionAsker
 from cli.book_asker import BookAsker
@@ -11,7 +11,7 @@ print('|Customer application|')
 credentials = getCredentials()
 consumer = DataConsumer(credentials)
 
-nameAsker = NameAsker()
+companyAsker = Selecter('Choose your company')
 passAsker = PassAsker()
 actionAsker = CustomerActionAsker()
 bookAsker = BookAsker()
@@ -19,16 +19,18 @@ bookAsker = BookAsker()
 display = BasicDisplay()
 
 # Login phase
-login = nameAsker.ask()
-pwd = passAsker.ask()
-
 compList = consumer.getCompanyNames()
 compList.append('dev')
 
-if login in compList:
+login = companyAsker.selectInto(compList)
+pwd = passAsker.ask()
+
+# Dummy password check
+if pwd != "":
     print('Successfully logged as', login)
 else:
     print('Name', login, 'not recognized.')
+    print('(dummy password check : enter an non-empty password)')
     exit()
 
 # Action phase
