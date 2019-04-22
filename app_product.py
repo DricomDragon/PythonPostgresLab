@@ -5,15 +5,14 @@ from basic_display import BasicDisplay
 from cli.pro_action_asker import ProActionAsker
 from cli.name_asker import NameAsker
 
-print('|Product management application|')
+display = BasicDisplay()
+display.title('Product management application')
 
 credentials = getCredentials()
 consumer = DataConsumer(credentials)
 
 actionAsker = ProActionAsker()
 nameAsker = NameAsker()
-
-display = BasicDisplay()
 
 running = True
 while running:

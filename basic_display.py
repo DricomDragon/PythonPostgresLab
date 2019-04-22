@@ -3,6 +3,13 @@ from model.ord import Ord
 from model.ori import Ori
 
 class BasicDisplay():
+    def title(self, title):
+        n = len(title) + 2
+        bar = '+' + '-' * n + '+'
+        print(bar)
+        print('|', title, '|')
+        print(bar)
+
     def product(self, p):
         print(p.id ,':', p.name)
 

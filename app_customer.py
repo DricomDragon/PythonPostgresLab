@@ -6,7 +6,8 @@ from cli.pass_asker import PassAsker
 from cli.customer_action_asker import CustomerActionAsker
 from cli.book_asker import BookAsker
 
-print('|Customer application|')
+display = BasicDisplay()
+display.title('Customer application')
 
 credentials = getCredentials()
 consumer = DataConsumer(credentials)
@@ -15,8 +16,6 @@ companyAsker = Selecter('Choose your company')
 passAsker = PassAsker()
 actionAsker = CustomerActionAsker()
 bookAsker = BookAsker()
-
-display = BasicDisplay()
 
 # Login phase
 compList = consumer.getCompanyNames()

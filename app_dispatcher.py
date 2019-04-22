@@ -1,17 +1,19 @@
 from consumer.connect import DataConsumer
 from consumer.credentials import getCredentials
 from model.product import Product
+from basic_display import BasicDisplay
 
-print('Start')
+display = BasicDisplay()
+display.title('Dispatcher application')
 
 credentials = getCredentials()
 consumer = DataConsumer(credentials)
 
-rows = consumer.getProductSet()
+rows = consumer.getCompanyNames()
 
+print('Companies to be delivered :')
 for r in rows:
-        pro = Product(r)
-        print('id = ', pro.id, '; name = ', pro.name)
-        print('- - -')
+        print(r)
+print('Application not implemented yet')
 
 print('End')
