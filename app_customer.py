@@ -42,9 +42,15 @@ while running:
         running = False
     elif action == 'list orders':
         bookList = consumer.getOrdersOfCompany(login)
-        bookId = bookAsker.select(bookList)
-        itemList = consumer.getItemsOfOrder(bookId)
-        display.orderedItemList(itemList)
+        if len(bookList) == 0:
+            display.error('No book order for', login, 'yet.')
+        else:
+            bookId = bookAsker.select(bookList)
+            itemList = consumer.getItemsOfOrder(bookId)
+            if len(itemList) == 0:
+                display.error('No item found for order', bookId)
+            else:
+                display.orderedItemList(itemList)
     else:
         print('Action', action, 'not implemented yet.')
 
