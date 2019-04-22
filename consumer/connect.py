@@ -50,6 +50,17 @@ class DataConsumer():
 
         return rows
 
+    def getItemsOfOrder(self, bookId):
+        cursor = self.conn.cursor()
+
+        cursor.execute("SELECT ori_id, ori_quantity, pro_name, ori_deliveryduedate FROM ordereditem NATURAL JOIN product WHERE ord_id = %s", (bookId,))
+
+        rows = cursor.fetchall()
+
+        cursor.close()
+
+        return rows
+        
     def commit(self):
         """Make the changes to the database persistent"""
         self.conn.commit()

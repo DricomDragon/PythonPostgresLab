@@ -44,6 +44,8 @@ while running:
         print('book list :', bookList)
         bookId = bookAsker.select(bookList)
         print('book selected :', bookId)
+        itemList = consumer.getItemsOfOrder(bookId)
+        display.orderedItemList(itemList)
     else:
         print('Action', action, 'not implemented yet.')
 
