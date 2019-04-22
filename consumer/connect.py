@@ -39,6 +39,17 @@ class DataConsumer():
 
         return ans
 
+    def getOrdersOfCompany(self, company):
+        cursor = self.conn.cursor()
+
+        cursor.execute("SELECT ord_id, ord_date FROM bookorder NATURAL JOIN company WHERE com_name = %s", (company,))
+
+        rows = cursor.fetchall()
+
+        cursor.close()
+
+        return rows
+
     def commit(self):
         """Make the changes to the database persistent"""
         self.conn.commit()

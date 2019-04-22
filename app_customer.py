@@ -4,6 +4,7 @@ from basic_display import BasicDisplay
 from cli.name_asker import NameAsker
 from cli.pass_asker import PassAsker
 from cli.customer_action_asker import CustomerActionAsker
+from cli.book_asker import BookAsker
 
 print('|Customer application|')
 
@@ -13,6 +14,7 @@ consumer = DataConsumer(credentials)
 nameAsker = NameAsker()
 passAsker = PassAsker()
 actionAsker = CustomerActionAsker()
+bookAsker = BookAsker()
 
 display = BasicDisplay()
 
@@ -37,6 +39,11 @@ while running:
     
     if action == 'quit':
         running = False
+    elif action == 'list orders':
+        bookList = consumer.getOrdersOfCompany(login)
+        print('book list :', bookList)
+        bookId = bookAsker.select(bookList)
+        print('book selected :', bookId)
     else:
         print('Action', action, 'not implemented yet.')
 
