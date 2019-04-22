@@ -41,9 +41,7 @@ while running:
         running = False
     elif action == 'list orders':
         bookList = consumer.getOrdersOfCompany(login)
-        print('book list :', bookList)
         bookId = bookAsker.select(bookList)
-        print('book selected :', bookId)
         itemList = consumer.getItemsOfOrder(bookId)
         display.orderedItemList(itemList)
     else:
