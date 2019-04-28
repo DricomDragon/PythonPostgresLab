@@ -33,4 +33,4 @@ while running:
     else:
         print('Action', action, 'not implemented yet.')
 
-print('End')
+display.end()

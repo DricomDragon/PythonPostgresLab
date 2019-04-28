@@ -16,4 +16,4 @@ for r in rows:
         print(r)
 print('Application not implemented yet')
 
-print('End')
+display.end()

@@ -14,6 +14,11 @@ class BasicDisplay():
     def error(self, *message):
         print('ERROR :', *message)
 
+    def end(self):
+        """Display endline before closing app"""
+        bar = '-' * 5
+        print('+', bar, 'end', bar, '+')
+
     def product(self, p):
         print(p.id ,':', p.name)
 
