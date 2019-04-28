@@ -61,6 +61,17 @@ class DataConsumer():
 
         return rows
         
+    def getWarehousesOfCompany(self, company):
+        cursor = self.conn.cursor()
+
+        cursor.execute("SELECT war_id, add_number, add_name, add_city FROM warehouse AS w JOIN company AS c ON w.com_id = c.com_id JOIN postaladdress AS p ON w.add_id = p.add_id WHERE com_name = %s", (company,))
+
+        rows = cursor.fetchall()
+
+        cursor.close()
+
+        return rows
+
     def commit(self):
         """Make the changes to the database persistent"""
         self.conn.commit()

@@ -51,6 +51,12 @@ while running:
                 display.error('No item found for order', bookId)
             else:
                 display.orderedItemList(itemList)
+    elif action == 'list warehouses':
+        houseList = consumer.getWarehousesOfCompany(login)
+        if len(houseList) == 0:
+            display.error('No warehouse for', login, 'yet.')
+        else:
+            display.warehouseList(houseList)
     else:
         print('Action', action, 'not implemented yet.')
 

@@ -1,6 +1,7 @@
 from model.product import Product
 from model.ord import Ord
 from model.ori import Ori
+from model.house import Warehouse
 
 class BasicDisplay():
     def title(self, title):
@@ -36,3 +37,11 @@ class BasicDisplay():
         for iRaw in iList:
             i = Ori(iRaw)
             self.orderedItem(i)
+
+    def warehouse(self, w):
+        print('Warehouse', w.id, ':', w.number, w.name, ',', w.city)
+
+    def warehouseList(self, wList):
+        for wRaw in wList:
+            w = Warehouse(wRaw)
+            self.warehouse(w)
