@@ -58,6 +58,6 @@ while running:
         else:
             display.warehouseList(houseList)
     else:
-        print('Action', action, 'not implemented yet.')
+        display.notImplemented(action)
 
 display.end()

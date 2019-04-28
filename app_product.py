@@ -31,6 +31,6 @@ while running:
         consumer.commit()
         print('Done.')
     else:
-        print('Action', action, 'not implemented yet.')
+        display.notImplemented(action)
 
 display.end()

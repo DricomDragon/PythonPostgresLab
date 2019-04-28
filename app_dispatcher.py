@@ -14,6 +14,6 @@ rows = consumer.getCompanyNames()
 print('Companies to be delivered :')
 for r in rows:
         print(r)
-print('Application not implemented yet')
+display.notImplemented('dispatcher application')
 
 display.end()

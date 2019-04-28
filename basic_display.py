@@ -19,6 +19,9 @@ class BasicDisplay():
         bar = '-' * 5
         print('+', bar, 'end', bar, '+')
 
+    def notImplemented(self, feature):
+        print('Feature', feature, 'not implemented yet.')
+
     def product(self, p):
         print(p.id ,':', p.name)
 
