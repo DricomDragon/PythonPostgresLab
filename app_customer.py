@@ -5,6 +5,10 @@ from cli.select import Selecter
 from cli.pass_asker import PassAsker
 from cli.customer_action_asker import CustomerActionAsker
 from cli.book_asker import BookAsker
+from cli.product_select import ProductSelecter
+from cli.house_asker import HouseAsker
+from cli.confirm import Confirmer
+from datetime import date, timedelta
 
 display = BasicDisplay()
 display.title('Customer application')
@@ -16,6 +20,9 @@ companyAsker = Selecter('Choose your company')
 passAsker = PassAsker()
 actionAsker = CustomerActionAsker()
 bookAsker = BookAsker()
+productAsker = ProductSelecter()
+houseAsker = HouseAsker()
+confirmAsker = Confirmer()
 
 # Login phase
 compList = consumer.getCompanyNames()
@@ -57,6 +64,18 @@ while running:
             display.error('No warehouse for', login, 'yet.')
         else:
             display.warehouseList(houseList)
+    elif action == 'new order':
+        houseList = consumer.getWarehousesOfCompany(login)
+        targetHouseId = houseAsker.select(houseList)
+        proList = consumer.getProductSet()
+        productIdList = productAsker.selectInto(proList)
+        productQuantityList = [100] * len(productIdList)
+        dueDate = date.today() + timedelta(15)
+        if (confirmAsker.confirm()):
+            consumer.addOrder(login, targetHouseId, productIdList, productQuantityList, dueDate)
+            consumer.commit()
+        else:
+            display.error('Order creation aborted')
     else:
         display.notImplemented(action)
 

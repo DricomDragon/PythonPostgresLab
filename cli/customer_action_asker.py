@@ -9,7 +9,7 @@ class CustomerActionAsker:
                 'type':'list',
                 'name':'action',
                 'message':'What do you want to do about orders ?',
-                'choices':['list orders','list warehouses','new command','quit']
+                'choices':['list orders','list warehouses','new order','quit']
             }
         ]
 

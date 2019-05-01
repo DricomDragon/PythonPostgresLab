@@ -72,6 +72,15 @@ class DataConsumer():
 
         return rows
 
+    def addOrder(self, company, houseId, proIdList, proQuantityList, dueDate):
+        print('add order not implemented yet')
+        print(company)
+        print(houseId)
+        print(proIdList)
+        print(proQuantityList)
+        print(dueDate)
+
+
     def commit(self):
         """Make the changes to the database persistent"""
         self.conn.commit()
