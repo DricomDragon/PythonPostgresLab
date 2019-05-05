@@ -68,11 +68,11 @@ while running:
         houseList = consumer.getWarehousesOfCompany(login)
         targetHouseId = houseAsker.select(houseList)
         proList = consumer.getProductSet()
-        productIdList = productAsker.selectInto(proList)
-        productQuantityList = [100] * len(productIdList)
+        proSelectNameList = productAsker.selectInto(proList)
+        productQuantityList = [100] * len(proSelectNameList)
         dueDate = date.today() + timedelta(15)
         if (confirmAsker.confirm()):
-            consumer.addOrder(login, targetHouseId, productIdList, productQuantityList, dueDate)
+            consumer.addOrder(login, targetHouseId, proSelectNameList, productQuantityList, dueDate)
             consumer.commit()
         else:
             display.error('Order creation aborted')

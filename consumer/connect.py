@@ -72,13 +72,13 @@ class DataConsumer():
 
         return rows
 
-    def addOrder(self, company, houseId, proIdList, proQuantityList, dueDate):
+    def addOrder(self, company, houseId, proList, proQuantityList, dueDate):
 
         # Debug : work under progress
         print('add order not implemented yet')
         print(company)
         print(houseId)
-        print(proIdList)
+        print(proList)
         print(proQuantityList)
         print(dueDate)
         
@@ -93,8 +93,8 @@ class DataConsumer():
         ordId = cursor.fetchone()[0]
 
         # Add ordered items
-        for k in range(len(proIdList)):
-            proName = proIdList[k]
+        for k in range(len(proList)):
+            proName = proList[k]
             proQuantity = proQuantityList[k]
             cursor.execute("INSERT INTO ordereditem(ori_quantity, ori_deliveryduedate, pro_id, ord_id, war_id) SELECT %s, %s, pro_id, %s, %s FROM product WHERE pro_name = %s", (proQuantity, dueDate, ordId, houseId, proName))
         cursor.close()
