@@ -73,12 +73,22 @@ class DataConsumer():
         return rows
 
     def addOrder(self, company, houseId, proIdList, proQuantityList, dueDate):
+
+        # Debug : work under progress
         print('add order not implemented yet')
         print(company)
         print(houseId)
         print(proIdList)
         print(proQuantityList)
         print(dueDate)
+        
+        # Create cursor to execute SQL statements
+        cursor = self.conn.cursor()
+
+        # Create book order
+        cursor.execute("INSERT INTO bookorder(ord_date, com_id) SELECT %s, com_id FROM company WHERE com_name = %s", (dueDate, company))
+
+        cursor.close()
 
 
     def commit(self):
