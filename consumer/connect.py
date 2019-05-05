@@ -88,6 +88,15 @@ class DataConsumer():
         # Create book order
         cursor.execute("INSERT INTO bookorder(ord_date, com_id) SELECT %s, com_id FROM company WHERE com_name = %s", (dueDate, company))
 
+        # Retrieve id of the newly created bookorder
+        cursor.execute("SELECT CURRVAL('bookorder_ord_id_seq')")
+        ordId = cursor.fetchone()[0]
+
+        # Add ordered items
+        for k in range(len(proIdList)):
+            proName = proIdList[k]
+            proQuantity = proQuantityList[k]
+            cursor.execute("INSERT INTO ordereditem(ori_quantity, ori_deliveryduedate, pro_id, ord_id, war_id) SELECT %s, %s, pro_id, %s, %s FROM product WHERE pro_name = %s", (proQuantity, dueDate, ordId, houseId, proName))
         cursor.close()
 
 
