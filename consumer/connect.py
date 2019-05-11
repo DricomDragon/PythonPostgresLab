@@ -74,14 +74,6 @@ class DataConsumer():
 
     def addOrder(self, company, houseId, proList, proQuantityList, dueDate):
 
-        # Debug : work under progress
-        print('add order not implemented yet')
-        print(company)
-        print(houseId)
-        print(proList)
-        print(proQuantityList)
-        print(dueDate)
-        
         # Create cursor to execute SQL statements
         cursor = self.conn.cursor()
 
