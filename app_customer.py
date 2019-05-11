@@ -8,6 +8,7 @@ from cli.book_asker import BookAsker
 from cli.product_select import ProductSelecter
 from cli.house_asker import HouseAsker
 from cli.confirm import Confirmer
+from cli.quantity_asker import QuantityAsker
 from datetime import date, timedelta
 
 display = BasicDisplay()
@@ -23,6 +24,7 @@ bookAsker = BookAsker()
 productAsker = ProductSelecter()
 houseAsker = HouseAsker()
 confirmAsker = Confirmer()
+quantityAsker = QuantityAsker()
 
 # Login phase
 compList = consumer.getCompanyNames()
@@ -69,7 +71,7 @@ while running:
         targetHouseId = houseAsker.select(houseList)
         proList = consumer.getProductSet()
         proSelectNameList = productAsker.selectInto(proList)
-        productQuantityList = [100] * len(proSelectNameList)
+        productQuantityList = quantityAsker.askForEachOf(proSelectNameList)
         dueDate = date.today() + timedelta(15)
         if (confirmAsker.confirm()):
             consumer.addOrder(login, targetHouseId, proSelectNameList, productQuantityList, dueDate)
