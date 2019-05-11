@@ -13,6 +13,7 @@ class QuantityAsker:
         ]
 
     def askForOne(self, name):
+        self.widget[0]['message'] = 'Quantity for ' + name + ' (g)'
         return int(prompt(self.widget)['number'])
 
     def askForEachOf(self, nameList):
