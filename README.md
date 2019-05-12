@@ -71,26 +71,26 @@ Python application launched by user. For instance, to run the application as a c
 
 `python3 app_customer.py`
 
-### File named `test_pyinquirer.py`
+### `test_pyinquirer.py`
 
 Execute this file with python to check if PyInquirer is correctly installed. No need of PostgreSQL to start this file.
 
-### File named `basic_display.py`
+### `basic_display.py`
 
 Contains a class that perform simple prints to show information to users.
 
-### Folder named `cli`
+### `cli`
 
 **cli** stands for *command line interface*. You will find every class which asks inputs to user. That's where the PyInquirer module is used.
 
-### Folder named `consumer`
+### `consumer`
 
 Contains code to interact with the database. The class **Consumer** in `consumer.py` holds a connection to perform SQL queries against the database. If you need to change the credentials used to log on the database, please modify `credentials.py`.
 
-### Folder named `SQL`
+### `SQL`
 
 Contains the SQL files used in the *prerequisites* section to create and populate the `logistics` database used by application.
 
-### Folder named `model`
+### `model`
 
 Contain simple python classes mapped to relational model. Used in `basic_display.py` to get the code more readable.
