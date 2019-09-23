@@ -41,7 +41,9 @@ Start service :
 
 #### Create python user
 
-`CREATE USER python_app WITH NOCREATEDB NOCREATEROLE NOSUPERUSER PASSWORD 'blablapoivron';`
+Create owner of the _logistics_ database.
+
+`sudo -u postgres psql -c "CREATE USER python_app WITH NOCREATEDB NOCREATEROLE NOSUPERUSER PASSWORD 'blablapoivron';"`
 
 #### Create the database
 
