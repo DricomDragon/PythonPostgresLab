@@ -39,27 +39,56 @@ Start service :
 
 `sudo service postgresql start`
 
-#### Create the database
+#### Create SQL objects
 
-Connect with postgres profile :
+##### Create python user
 
-`sudo su postgres`
+Create owner of the _logistics_ database.
+
+`sudo -u postgres psql -f SQL/create_user.sql`
+
+##### Create the database
 
 Create the database :
 
-`psql -f SQL/create_db.sql postgres`
+`sudo -u postgres psql -f SQL/create_db.sql`
+
+##### Create tables
 
 Populate database with tables :
 
-`psql -d logistics -f SQL/create_tables.sql postgres`
+`sudo -u postgres psql -d logistics -f SQL/create_tables.sql`
+
+Grant python to alter these tables :
+
+`sudo -u postgres psql -d logistics -f SQL/grant_python.sql`
+
+##### Add starter testing data
 
 Populate tables with sample data :
 
-`psql -d logistics -f SQL/populate_tables.sql postgres`
+`sudo -u postgres psql -d logistics -f SQL/populate_tables.sql`
 
-If needed you can adapt the password of postgres user (or any user you want) :
+#### Security
 
-`psql -c "alter user postgres password 'postgres_password'"`
+If needed you can adapt the password of *python_app* user (or any user you want) :
+
+`sudo -u postgres psql -c "ALTER USER python_app PASSWORD 'blablapoivron'"`
+
+Do not forget to adapt the password in the `consumer/credentials.py` file.
+
+#### Shortcut
+
+To do everything in two single command :
+`sudo -u postgres psql -f SQL/create_user.sql -f SQL/create_db.sql`
+
+`sudo -u postgres psql -d logistics -f SQL/create_tables.sql -f SQL/grant_python.sql -f SQL/populate_tables.sql`
+
+#### Clear everything
+
+Remove database and *python_app* db user :
+
+`sudo -u postgres psql -f SQL/clear_all.sql`
 
 ## Repository structure
 

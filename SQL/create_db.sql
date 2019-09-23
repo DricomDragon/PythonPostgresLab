@@ -1,1 +1,1 @@
-CREATE DATABASE logistics;
+CREATE DATABASE logistics OWNER python_app ;

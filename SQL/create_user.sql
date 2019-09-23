@@ -1,0 +1,4 @@
+CREATE 
+    USER python_app 
+    WITH NOCREATEDB NOCREATEROLE NOSUPERUSER 
+        PASSWORD 'blablapoivron';
