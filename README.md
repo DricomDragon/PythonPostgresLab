@@ -39,6 +39,10 @@ Start service :
 
 `sudo service postgresql start`
 
+#### Create python user
+
+`CREATE USER python_app WITH NOCREATEDB NOCREATEROLE NOSUPERUSER PASSWORD 'blablapoivron';`
+
 #### Create the database
 
 Connect with postgres profile :
