@@ -75,6 +75,8 @@ If needed you can adapt the password of *python_app* user (or any user you want)
 
 `sudo -u postgres psql -c "ALTER USER python_app PASSWORD 'blablapoivron'"`
 
+Do not forget to adapt the password in the `consumer/credentials.py` file.
+
 #### Shortcut
 
 To do everything in two single command :
