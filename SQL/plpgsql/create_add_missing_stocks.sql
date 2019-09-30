@@ -3,13 +3,25 @@ $$
 DECLARE
     proCursor CURSOR FOR SELECT pro_id FROM Product;
     proId Product.pro_id%TYPE;
+    warCursor CURSOR FOR SELECT war_id FROM Warehouse;
+    warId Warehouse.war_id%TYPE;
 BEGIN
     RAISE NOTICE 'Start';
+
+    -- Iterate on products
     OPEN proCursor;
     LOOP
         FETCH proCursor INTO proId;
         EXIT WHEN proId IS NULL;
-        RAISE NOTICE 'Loop %', proId;
+
+        -- Iterate on warehouses
+        OPEN warCursor;
+        LOOP
+            FETCH warCursor INTO warId;
+            EXIT WHEN warId IS NULL;
+            RAISE NOTICE 'Pro % for war %', proId, warId;
+        END LOOP;
+        CLOSE warCursor;
     END LOOP;
     CLOSE proCursor;
     RAISE NOTICE 'End';
