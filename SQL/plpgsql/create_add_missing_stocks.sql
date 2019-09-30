@@ -30,6 +30,8 @@ BEGIN
             IF stoQuantity IS NULL
             THEN
                 RAISE NOTICE 'Pro % for war % not available', proId, warId;
+                INSERT INTO Stock(pro_id, war_id) VALUES (proId, warId);
+                RAISE NOTICE '- Pro % for war % was inserted', proId, warId;
             ELSE 
                 RAISE NOTICE 'Pro % for war % stores %', proId, warId, stoQuantity;
             END IF;
