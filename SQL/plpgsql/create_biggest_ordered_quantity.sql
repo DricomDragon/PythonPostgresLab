@@ -3,7 +3,7 @@ $$
 DECLARE
     ans INTEGER;
 BEGIN
-    SELECT ori_quantity FROM OrderedItem WHERE ori_id = 1 INTO ans;
+    SELECT ori_quantity FROM OrderedItem ORDER BY ori_quantity DESC INTO ans;
 
     RETURN ans;
 END;
