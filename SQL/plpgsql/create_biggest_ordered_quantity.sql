@@ -1,9 +1,9 @@
-CREATE OR REPLACE FUNCTION biggest_ordered_quantity() RETURNS INTEGER AS 
+CREATE OR REPLACE FUNCTION biggest_ordered_quantity() RETURNS OrderedItem AS 
 $$
 DECLARE
-    ans INTEGER;
+    ans OrderedItem;
 BEGIN
-    SELECT ori_quantity FROM OrderedItem ORDER BY ori_quantity DESC INTO ans;
+    SELECT * FROM OrderedItem ORDER BY ori_quantity DESC INTO ans;
 
     RETURN ans;
 END;
