@@ -13,6 +13,8 @@ BEGIN
         EXIT WHEN stoQuantity IS NULL;
 
         RAISE NOTICE 'Supply %', amount;
+
+        UPDATE Stock SET sto_quantity = sto_quantity + amount WHERE CURRENT OF stoCursor;
     END LOOP;
     CLOSE stoCursor;
     RAISE NOTICE 'End';
